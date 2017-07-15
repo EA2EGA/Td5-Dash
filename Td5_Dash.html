@@ -127,11 +127,11 @@
         </tr>
         <tr>
             <td width="100%">
-                <canvas id="canvasRadial1" width="201" height="201">No canvas in your browser...sorry...</canvas>
+                <canvas id="canvasRadial1" width="300" height="300">No canvas in your browser...sorry...</canvas>
                 <canvas id="canvasRadial2" width="201" height="201"></canvas>
                 <canvas id="canvasRadial3" width="201" height="201"></canvas>
                 <canvas id="canvasRadial4" width="201" height="201"></canvas>
-            </td>
+            
         </tr>
         <tr>
             <td width="100%">
@@ -159,6 +159,10 @@
 	
 <script>
     var radial1;
+	var radial2;
+	var radial3;
+	var radial4;
+	
 
 	var i=1;
 	
@@ -217,6 +221,20 @@
                             threshold: 4000,
 							maxValue: 4200,
                             lcdVisible: true,
+							fullScaleDeflectionTime: 0.6
+                        });
+						
+		var sectionsRadial2 = [steelseries.Section(13, 14, 'rgba(0, 220, 0, 0.3)'),
+                        steelseries.Section(12, 13, 'rgba(220, 220, 0, 0.3)')],
+						
+		radial2 = new steelseries.Radial('canvasRadial2', {
+                            gaugeType: steelseries.GaugeType.TYPE4,
+                            size: 200,
+                            section: sectionsRadial2,
+                            titleString: 'Volt',
+							maxValue: 16,
+							minValue: 8,
+                            lcdVisible: false,
 							fullScaleDeflectionTime: 0.6
                         });
 		        
