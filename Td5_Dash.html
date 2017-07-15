@@ -173,6 +173,10 @@
 	};
 	
     function init() {
+    
+        // Prevent all future AJAX requests from being cached, regardless of which jQuery method you use ($.get, $.ajax, etc.)
+        $.ajaxSetup({ cache: false });
+    
         if (window.File && window.FileReader && window.FileList && window.Blob) {
 		  // Great success! All the File APIs are supported.
 		} else {
@@ -248,7 +252,8 @@
 		$.ajax({
 		  dataType: "json",
 		  //url: jsonurl+"?t="+i,
-		  url: jsonurl+"?t="+Date.now(),
+		  //url: jsonurl+"?t="+Date.now(),
+          url: jsonurl,
 		  data: data,
 		  success: function(data) {
 			var rpm = data.fuelling.rpm;
